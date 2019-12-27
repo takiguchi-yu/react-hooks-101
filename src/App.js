@@ -1,8 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const App = props => {
   const [state, setState] = useState(props)
   const {name, price} = state
+
+  // DOMが変更される度に実行（レンダリングされる度に実行）
+  useEffect(() => {
+    console.log('This is like componentDidMount or componentDidUpdate.')
+  })
+
+  // レンダリング時に一度だけ実行
+  useEffect(() => {
+    console.log('This is like componentDidMount')
+  }, [])
+
+  // name が変更されたときだけ実行
+  useEffect(() => {
+    console.log('This callback is for name only.')
+  }, [name])
 
   return (
     <>
