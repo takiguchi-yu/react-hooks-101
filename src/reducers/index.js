@@ -15,7 +15,7 @@ const events = (state = [], action) => {
       return state.filter(event => event.id !== action.id);
 
     // 全てのイベント削除
-    case 'DELETE_ALL_EVENT': 
+    case 'DELETE_ALL_EVENTS': 
       return [];
     default:
       return state;  
